@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 
-export default function SignUp(props) {
+export default function SignUp(props,{ navigation }) {
     
     console.log("Todo copas");
     const{ title='Registrarse', otitle= 'Ya tengo una cuenta'} = props;
