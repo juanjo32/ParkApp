@@ -4,6 +4,9 @@ import TextInput from '../components/TextInput';
 import Button from '../components/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 
 const LoginSchema = yup.object().shape({
@@ -13,7 +16,7 @@ const LoginSchema = yup.object().shape({
     .max(10, 'Too Long!')
     .required('Required')
 });
-export default function Login(props) {
+export default function Login({ navigation }) {
   const password = useRef(null);
   const [isSelected, setSelection] = useState(false);
   const {
@@ -88,10 +91,11 @@ export default function Login(props) {
           <Text style={styles.label}>Acepto los terminos y condiciones</Text>
 
       <Button label='Ingresar' onPress={handleSubmit}/>
-      <Button label='Registrarse'  onPress={handleSubmit}/>
+      <Button label='Registrarse'  onPress= {() => navigation.navigate('IngresoParqueadero') }/>
+
       <View>
         <Text style={{ color: '#fff', fontSize: 15, marginBottom: 0 }}> Wow  <Text style={{color: '#5CE1E6'}}
-            onPress={() => Linking.openURL('https://www.instagram.com/')}>
+            onPress={() => navigation.navigate('SingUp') }>
               Click Here
          </Text>
         </Text>
@@ -99,6 +103,8 @@ export default function Login(props) {
     </View>
     
   );
+  //{handleSubmit}
+  //Linking.openURL('https://www.instagram.com/')
 }
 const styles = StyleSheet.create({
 checkbox: {
