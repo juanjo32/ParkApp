@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, SafeAreaView, Button, Pressable,
 TextInput, Picker } from 'react-native';
 
 
-export default function IngresoParqueadero(props) {
+export default function IngresoParqueadero(props, { navigation }) {
     
     console.log("Todo copas");
     const{otitle= 'Ingresar al parqueadero'} = props;
